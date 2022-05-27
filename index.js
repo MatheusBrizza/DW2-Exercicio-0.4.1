@@ -67,6 +67,25 @@ function gerarMediaGeral2(notas) {
 const alunoComMediaGeral = alunos.map((aluno) => {
   const mediaGeral = gerarMediaGeral2(aluno.notas);
   aluno.mediaGeral = mediaGeral;
+  return aluno;
 });
 
 console.log(mediaGeral);
+
+// correção com reduce (já fiz com o exercício, mas vamos ter para exemplo)
+
+const mediaGeralCallBack = (acumulador, proximoValor) => {
+  const { nota } = proximoValor;
+  return acumulador + nota;
+};
+/* ao invés de ter feito igual eu fiz, dessa vez tiramos o callback do reduce e botamos numa variável separada, isso é usado quando queremos testar melhor aquele callback ou então queremos usar tal callback em outras functions */
+function gerarMediaGeral3(notas) {
+  const mediaGeral = notas.reduce(mediaGeralCallBack, 0);
+  return mediaGeral / notas.length;
+}
+
+const alunoComMediaGeral = alunos.map((aluno) => {
+  const mediaGeral = gerarMediaGeral3(aluno.notas);
+  aluno.mediaGeral = mediaGeral;
+  return aluno;
+});
