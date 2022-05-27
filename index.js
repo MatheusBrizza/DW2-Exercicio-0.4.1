@@ -45,12 +45,21 @@ function gerarMediaGeral(notas) {
   return mediaGeral / notas.length;
 }
 
+const mediaGeral = gerarMediaGeral(alunos[1].notas);
+
+const alunoComMediaGeral = alunos.map((aluno) => {
+  const mediaGeral = null;
+  aluno.mediaGeral = mediaGeral;
+});
+
+console.log(mediaGeral);
+
 // correção com forEach
 
 function gerarMediaGeral2(notas) {
   let mediaGeral = 0;
   notas.forEach((nota) => {
-       mediaGeral = mediaGeral + nota.nota;
+    mediaGeral = mediaGeral + nota.nota;
   });
   return mediaGeral / notas.length;
 }
@@ -60,7 +69,4 @@ const alunoComMediaGeral = alunos.map((aluno) => {
   aluno.mediaGeral = mediaGeral;
 });
 
-//const mediaGeral = gerarMediaGeral(alunos[1].notas);
-
 console.log(mediaGeral);
-
